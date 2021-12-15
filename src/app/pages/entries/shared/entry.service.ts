@@ -13,17 +13,9 @@ export class EntryService extends BaseResourceService<Entry>{
         protected injector: Injector,
         private categoryService: CategoryService
     ) {
-        super("api/entries", injector)
+        super("api/entries", injector, Entry.fromJson)
     }
 
-
-    //Já funciona em casso de ter WebService
-    // create(entry: Entry): Observable<Entry> {
-    //     return this.http.post(this.apiPath, entry).pipe(
-    //         catchError(this.handleError),
-    //         map(this.jsonDataToEntry)
-    //     );
-    // }
     create(entry: Entry): Observable<Entry> {
 
         return this.categoryService.getById(entry.categoryId).pipe(
@@ -43,24 +35,5 @@ export class EntryService extends BaseResourceService<Entry>{
             })
         )
     }
-
-
-
-    //PROTECTED METHODS
-    protected jsonDataToResources(jsonData: any[]): Entry[] {
-        const entries: Entry[] = [];
-        jsonData.forEach(
-            element => entries.push(
-                Object.assign(new Entry(), element)
-            )
-        );
-        return entries;
-    }
-
-    protected jsonDataToResource(jsonData: any): Entry {
-        return Object.assign(new Entry(), jsonData);
-    }
-
-
 
 }
