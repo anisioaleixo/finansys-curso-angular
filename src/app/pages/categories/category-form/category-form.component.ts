@@ -14,9 +14,9 @@ import { CategoryService } from '../shared/category.service';
 export class CategoryFormComponent extends BaseResouceFormComponent<Category> {
 
   constructor(
-    protected categoryService: CategoryService, 
+    protected categoryService: CategoryService,
     protected injector: Injector
-  ) { super(injector, new Category(),categoryService,Category.fromJson )}
+  ) { super(injector, new Category(), categoryService, Category.fromJson) }
 
   //protected methods  
   protected buildResourceForm() {
@@ -28,12 +28,12 @@ export class CategoryFormComponent extends BaseResouceFormComponent<Category> {
   }
 
   protected creationPageTitle(): string {
-      return "Cadastro de nova categoria";
+    return "Cadastro de Nova categoria";
   }
 
- protected editionPageTitle(): string {
-   const categoryName = this.resource.name || "";
-     return "Editando Categoria: " + categoryName;
- }
+  protected editionPageTitle(): string {
+    const resourceName = this.resource.name || "";
+    return "Editando Categoria: " + resourceName;
+  }
 
 }
