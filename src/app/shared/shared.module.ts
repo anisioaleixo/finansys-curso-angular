@@ -4,14 +4,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';
 
 @NgModule({
-  declarations: [BreadCrumbComponent],
+  declarations: [
+    BreadCrumbComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule
   ],
   exports: [
+    //shared modules
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    //shared components
+    BreadCrumbComponent
   ]
 })
 export class SharedModule { }
